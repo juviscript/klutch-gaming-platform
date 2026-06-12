@@ -1,4 +1,24 @@
 package dev.juviscript.klutchgaming.products.model;
 
-public class ProductImage {
+import dev.juviscript.klutchgaming.common.BaseEntity;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Entity
+@Table(name = "product_images")
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class ProductImage extends BaseEntity {
+    @Id
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
+    private String imageUrl;
+
+    @ManyToOne
+    @JoinColumn(name = "product_variant_id", nullable = false)
+    private ProductVariant productVariant;
 }

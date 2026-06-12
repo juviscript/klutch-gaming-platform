@@ -3,6 +3,7 @@ CREATE TABLE users (
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
+    phone_number VARCHAR(50),
     password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -30,7 +31,7 @@ CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    description_HTML TEXT,
+    description_Html TEXT,
     price DECIMAL(10, 2) NOT NULL,
     is_component_assembled BOOLEAN DEFAULT FALSE,
     is_active BOOLEAN DEFAULT TRUE,
@@ -46,7 +47,7 @@ CREATE TABLE product_variants (
     color VARCHAR(50),
     size VARCHAR(50),
     price DECIMAL(10, 2) NOT NULL,
-    stock INTEGER NOT NULL,
+    stock_quantity INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP,
@@ -55,15 +56,15 @@ CREATE TABLE product_variants (
 
 CREATE TABLE product_images (
     id SERIAL PRIMARY KEY,
-    product_id INTEGER NOT NULL,
+    product_variant_id INTEGER NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP,
-    FOREIGN KEY (product_id) REFERENCES products(id)
+    FOREIGN KEY (product_variant_id) REFERENCES product_variants(id)
 );
 
-CREATE TABLE cart (
+CREATE TABLE carts (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -80,7 +81,7 @@ CREATE TABLE cart_items (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP,
-    FOREIGN KEY (cart_id) REFERENCES cart(id),
+    FOREIGN KEY (cart_id) REFERENCES carts(id),
     FOREIGN KEY (product_variant_id) REFERENCES product_variants(id)
 );
 
@@ -115,7 +116,7 @@ CREATE TABLE order_items (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP,
     FOREIGN KEY (order_id) REFERENCES orders(id),
-    FOREIGN KEY (product_id) REFERENCES products(id)
+    FOREIGN KEY (product_variant_id) REFERENCES product_variants(id)
 );
 
 CREATE TABLE order_status_history (
