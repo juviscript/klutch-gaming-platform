@@ -1,5 +1,6 @@
 package dev.juviscript.klutchgaming.users.model;
 
+import dev.juviscript.klutchgaming.auth.model.Role;
 import dev.juviscript.klutchgaming.common.BaseEntity;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -38,4 +39,7 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private List<Address> addresses;
 
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    private Role role;
 }
