@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
@@ -18,17 +19,21 @@ public class OrderItem extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
-
-    @ManyToOne
-    @JoinColumn(name = "product_variant_id", nullable = false)
-    private ProductVariant productVariant;
-
     @NotNull
     private Integer quantity;
 
     @NotNull
     private BigDecimal price;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToOne
+    @JoinColumn(name = "product_variant_id", nullable = false)
+    private ProductVariant productVariant;
 }

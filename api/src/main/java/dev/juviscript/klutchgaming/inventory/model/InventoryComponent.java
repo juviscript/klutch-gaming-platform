@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "inventory_components")
@@ -22,14 +23,16 @@ public class InventoryComponent extends BaseEntity {
     @NotNull
     private Integer quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "vendor_id")
-    @Nullable
-    private Vendor vendor;
-
     @Nullable
     private String vendorProductUrl;
 
     @Nullable
     private String unit;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToOne
+    @JoinColumn(name = "vendor_id")
+    @Nullable
+    private Vendor vendor;
 }

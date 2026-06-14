@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,11 +20,6 @@ public class Order extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    @Nullable
-    private User user;
 
     @NotNull
     private BigDecimal totalPrice;
@@ -43,9 +39,20 @@ public class Order extends BaseEntity {
     @NotNull
     private String status;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @Nullable
+    private User user;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "order")
     private List<OrderStatusHistory> statusHistory;
 }

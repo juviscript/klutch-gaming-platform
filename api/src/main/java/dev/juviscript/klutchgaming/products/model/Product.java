@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -34,6 +35,8 @@ public class Product extends BaseEntity {
     private boolean isComponentAssembled;
     private boolean isActive;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "product")
     private List<ProductVariant> productVariants;
 }

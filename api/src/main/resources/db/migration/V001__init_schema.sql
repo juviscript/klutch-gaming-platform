@@ -1,5 +1,5 @@
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -12,14 +12,15 @@ CREATE TABLE users (
 );
 
 CREATE TABLE addresses (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
     label VARCHAR(50),
     address_line1 VARCHAR(255) NOT NULL,
     address_line2 VARCHAR(255),
     city VARCHAR(255) NOT NULL,
     state VARCHAR(10) NOT NULL,
-    zip VARCHAR(20) NOT NULL,
+    zip_code VARCHAR(20) NOT NULL,
+    country VARCHAR(100) NOT NULL,
     is_default BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -29,7 +30,7 @@ CREATE TABLE addresses (
 
 
 CREATE TABLE products (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
     description_Html TEXT,
@@ -42,8 +43,8 @@ CREATE TABLE products (
 );
 
 CREATE TABLE product_variants (
-    id SERIAL PRIMARY KEY,
-    product_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    product_id BIGINT NOT NULL,
     variant_name VARCHAR(255) NOT NULL,
     color VARCHAR(50),
     size VARCHAR(50),
@@ -56,8 +57,8 @@ CREATE TABLE product_variants (
 );
 
 CREATE TABLE product_images (
-    id SERIAL PRIMARY KEY,
-    product_variant_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    product_variant_id BIGINT NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -66,8 +67,8 @@ CREATE TABLE product_images (
 );
 
 CREATE TABLE carts (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP,
@@ -75,9 +76,9 @@ CREATE TABLE carts (
 );
 
 CREATE TABLE cart_items (
-    id SERIAL PRIMARY KEY,
-    cart_id INTEGER NOT NULL,
-    product_variant_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    cart_id BIGINT NOT NULL,
+    product_variant_id BIGINT NOT NULL,
     quantity INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -87,8 +88,8 @@ CREATE TABLE cart_items (
 );
 
 CREATE TABLE orders (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER,
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT,
     total_price DECIMAL(10, 2) NOT NULL,
     shipping_address_line1 VARCHAR(255) NOT NULL,
     shipping_address_line2 VARCHAR(255),
@@ -108,9 +109,9 @@ CREATE TABLE orders (
 );
 
 CREATE TABLE order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INTEGER NOT NULL,
-    product_variant_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    order_id BIGINT NOT NULL,
+    product_variant_id BIGINT NOT NULL,
     quantity INTEGER NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -121,18 +122,18 @@ CREATE TABLE order_items (
 );
 
 CREATE TABLE order_status_history (
-    id SERIAL PRIMARY KEY,
-    order_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    order_id BIGINT NOT NULL,
     status VARCHAR(50) NOT NULL,
     changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    changed_by INTEGER,
+    changed_by BIGINT,
     changed_source VARCHAR(50),
     FOREIGN KEY (order_id) REFERENCES orders(id),
     FOREIGN KEY (changed_by) REFERENCES users(id)
 );
 
 CREATE TABLE vendors (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     website VARCHAR(255),
     notes VARCHAR(500),
@@ -142,10 +143,10 @@ CREATE TABLE vendors (
 );
 
 CREATE TABLE inventory_components (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     component_name VARCHAR(255) NOT NULL,
     quantity INTEGER NOT NULL,
-    vendor_id INTEGER,
+    vendor_id BIGINT,
     vendor_product_url VARCHAR(255),
     unit VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -155,9 +156,9 @@ CREATE TABLE inventory_components (
 );
 
 CREATE TABLE component_recipe (
-    id SERIAL PRIMARY KEY,
-    product_id INTEGER NOT NULL,
-    component_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    product_id BIGINT NOT NULL,
+    component_id BIGINT NOT NULL,
     quantity INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -167,8 +168,8 @@ CREATE TABLE component_recipe (
 );
 
 CREATE TABLE shipments (
-    id SERIAL PRIMARY KEY,
-    order_id INTEGER NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    order_id BIGINT NOT NULL,
     carrier VARCHAR(50),
     tracking_number VARCHAR(255),
     label_url VARCHAR(255),

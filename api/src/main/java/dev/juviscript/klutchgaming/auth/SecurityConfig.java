@@ -35,9 +35,9 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
-                        .requestMatchers("/api/inventory/**").hasAnyRole("ADMIN", "SUPER_ADMIN")
-                        .requestMatchers("/api/orders/**").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/api/products", "/api/products/**").permitAll()
+                        .requestMatchers("/api/inventory", "/api/inventory/**").hasAnyRole("ADMIN", "SUPER_ADMIN")
+                        .requestMatchers("/api/orders", "/api/orders/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

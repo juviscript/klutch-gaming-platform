@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "product_images")
@@ -18,6 +19,8 @@ public class ProductImage extends BaseEntity {
     @NotNull
     private String imageUrl;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne
     @JoinColumn(name = "product_variant_id", nullable = false)
     private ProductVariant productVariant;

@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -37,6 +38,8 @@ public class User extends BaseEntity {
     private String phoneNumber;
 
     @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Address> addresses;
 
     @Enumerated(EnumType.STRING)
