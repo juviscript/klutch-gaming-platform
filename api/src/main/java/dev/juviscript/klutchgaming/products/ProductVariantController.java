@@ -1,7 +1,10 @@
 package dev.juviscript.klutchgaming.products;
 
-import dev.juviscript.klutchgaming.products.model.ProductVariant;
+import dev.juviscript.klutchgaming.products.dto.ProductVariantDto;
+import dev.juviscript.klutchgaming.products.dto.ProductVariantRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,26 +18,23 @@ public class ProductVariantController {
     private final ProductVariantService productVariantService;
 
     @GetMapping
-    public ResponseEntity<List<ProductVariant>> getVariantsByProductId(@PathVariable Long productId) {
+    public ResponseEntity<List<ProductVariantDto>> getVariantsByProductId(@PathVariable Long productId) {
         return ResponseEntity.ok(productVariantService.getVariantsByProductId(productId));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductVariant> getVariantById(@PathVariable Long id) {
-        return productVariantService.getVariantById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<ProductVariantDto> getVariantById(@PathVariable Long id) {
+        return ResponseEntity.ok(productVariantService.getVariantById(id));
     }
 
     @PostMapping
-    public ResponseEntity<ProductVariant> createVariant(@PathVariable Long productId, @RequestBody ProductVariant variant) {
-        return ResponseEntity.ok(productVariantService.createVariant(variant));
+    public ResponseEntity<ProductVariantDto> createVariant(@PathVariable Long productId, @Valid @RequestBody ProductVariantRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productVariantService.createVariant(productId, request));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductVariant> updateVariant(@PathVariable Long id, @RequestBody ProductVariant variant) {
-        variant.setId(id);
-        return ResponseEntity.ok(productVariantService.updateVariant(variant));
+    public ResponseEntity<ProductVariantDto> updateVariant(@PathVariable Long id, @Valid @RequestBody ProductVariantRequest request) {
+        return ResponseEntity.ok(productVariantService.updateVariant(id, request));
     }
 
     @DeleteMapping("/{id}")

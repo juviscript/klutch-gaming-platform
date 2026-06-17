@@ -1,13 +1,14 @@
 package dev.juviscript.klutchgaming.products;
 
+import dev.juviscript.klutchgaming.products.dto.ProductDto;
+import dev.juviscript.klutchgaming.products.dto.ProductRequest;
 import dev.juviscript.klutchgaming.products.model.Product;
 import dev.juviscript.klutchgaming.products.repository.ProductRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,34 +16,44 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public List<Product> getAllActiveProducts() {
-        return productRepository.findByIsActiveTrue();
+    public List<ProductDto> getAllActiveProducts() {
+        return productRepository.findByIsActiveTrue().stream()
+                .map(ProductDto::from)
+                .toList();
     }
 
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
+    public ProductDto getProductById(Long id) {
+        return productRepository.findById(id)
+                .map(ProductDto::from)
+                .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + id));
     }
 
-    public Optional<Product> getProductById(Long id) {
-        return productRepository.findById(id);
+    public ProductDto createProduct(ProductRequest request) {
+        Product product = new Product();
+        product.setName(request.name());
+        product.setDescription(request.description());
+        product.setDescriptionHtml(request.descriptionHtml());
+        product.setPrice(request.price());
+        product.setComponentAssembled(request.isComponentAssembled());
+        product.setActive(true);
+        return ProductDto.from(productRepository.save(product));
     }
 
-    public Optional<Product> getProductByName(String name) {
-        return productRepository.findByName(name);
-    }
-
-    public Product createProduct(Product product) {
-        return productRepository.save(product);
-    }
-
-    public Product updateProduct(Product product) {
-        return productRepository.save(product);
+    public ProductDto updateProduct(Long id, ProductRequest request) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + id));
+        product.setName(request.name());
+        product.setDescription(request.description());
+        product.setDescriptionHtml(request.descriptionHtml());
+        product.setPrice(request.price());
+        product.setComponentAssembled(request.isComponentAssembled());
+        return ProductDto.from(productRepository.save(product));
     }
 
     public void deleteProduct(Long id) {
-        productRepository.findById(id).ifPresent(product -> {
-            product.setDeletedAt(LocalDateTime.now());
-            productRepository.save(product);
-        });
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + id));
+        product.setActive(false);
+        productRepository.save(product);
     }
 }
