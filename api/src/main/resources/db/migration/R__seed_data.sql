@@ -1,3 +1,10 @@
+-- ============================================================
+-- Admin user (default password: Admin1234! — change after first login)
+-- ============================================================
+INSERT INTO users (first_name, last_name, email, password_hash, role)
+VALUES ('Juvi', 'Panaguiton', 'juviscript@gmail.com', '$2a$12$mQmTYSiKYRTJYqb1yFbOQ.VCnxFT7HW8gOEKRpnqf5bsxfpnLuKF6', 'SUPER_ADMIN')
+ON CONFLICT (email) DO NOTHING;
+
 -- Products
 INSERT INTO products (name, description, description_html, price, is_component_assembled, is_active)
 VALUES
