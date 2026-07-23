@@ -1,0 +1,80 @@
+<footer class="border-t border-white/10 bg-white/[0.02] py-16">
+  <div class="content">
+    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-b border-white/10 pb-10 text-sm font-semibold uppercase tracking-wide text-gray-400">
+      @for (social of socials; track social) {
+        <a href="#" class="transition-colors hover:text-white">{{ social }}</a>
+      }
+    </div>
+
+    <div class="grid grid-cols-2 gap-10 py-14 sm:grid-cols-3 lg:grid-cols-6">
+      <div class="col-span-2 sm:col-span-3 lg:col-span-1">
+        <img src="/logo.svg" alt="Klutch Gaming" class="h-6 w-auto" />
+        <p class="mt-4 max-w-xs text-sm text-gray-500">
+          Performance gaming hardware designed to give you the competitive edge.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-white">Shop</p>
+        <ul class="mt-4 space-y-3 text-sm text-gray-400">
+          @for (link of shopLinks; track link) {
+            <li><a href="#" class="transition-colors hover:text-white">{{ link }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-white">Company</p>
+        <ul class="mt-4 space-y-3 text-sm text-gray-400">
+          @for (link of companyLinks; track link) {
+            <li><a href="#" class="transition-colors hover:text-white">{{ link }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-white">Support</p>
+        <ul class="mt-4 space-y-3 text-sm text-gray-400">
+          @for (link of supportLinks; track link) {
+            <li><a href="#" class="transition-colors hover:text-white">{{ link }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-white">Legal</p>
+        <ul class="mt-4 space-y-3 text-sm text-gray-400">
+          @for (link of legalLinks; track link) {
+            <li><a href="#" class="transition-colors hover:text-white">{{ link }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div class="col-span-2 sm:col-span-3 lg:col-span-1">
+        <p class="text-xs font-bold uppercase tracking-widest text-white">Stay in the Loop</p>
+        <p class="mt-3 text-sm text-gray-500">New products, updates, and behind the scenes.</p>
+        <form class="mt-4 flex gap-2" (submit)="$event.preventDefault()">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="w-full min-w-0 rounded border border-white/20 bg-transparent px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:border-brand-purple focus:outline-none"
+          />
+          <button
+            type="submit"
+            aria-label="Subscribe"
+            class="flex shrink-0 items-center justify-center rounded bg-brand-purple px-4 text-white transition-colors hover:bg-brand-purple-dark"
+          >
+            <app-icon name="arrow-right" iconClass="h-4 w-4" />
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs uppercase tracking-widest text-gray-500 sm:flex-row"
+    >
+      <p>© {{ year }} Klutch Gaming. All rights reserved.</p>
+      <p>Built Different</p>
+    </div>
+  </div>
+</footer>

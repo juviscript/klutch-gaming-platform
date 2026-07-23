@@ -1,0 +1,25 @@
+<nav class="sticky top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/95 backdrop-blur">
+  <div class="content flex items-center justify-between py-5">
+    <a href="/" class="flex items-center gap-2">
+      <img src="/logo.svg" alt="Klutch Gaming" class="h-6 w-auto" />
+    </a>
+
+    <div class="hidden items-center gap-10 text-xs font-semibold uppercase tracking-widest text-gray-300 md:flex">
+      <a href="#" class="transition-colors hover:text-white">Store</a>
+      <a href="#" class="transition-colors hover:text-white">About</a>
+      <a href="#" class="transition-colors hover:text-white">Support</a>
+    </div>
+
+    <div class="flex items-center gap-5">
+      <button type="button" aria-label="Account" class="text-gray-300 transition-colors hover:text-white">
+        <app-icon name="user" iconClass="h-5 w-5" />
+      </button>
+      <button type="button" aria-label="Cart" class="relative text-gray-300 transition-colors hover:text-white">
+        <app-icon name="cart" iconClass="h-5 w-5" />
+        <span class="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-brand-purple text-[10px] font-bold text-white">
+          2
+        </span>
+      </button>
+    </div>
+  </div>
+</nav>

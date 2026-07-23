@@ -14,10 +14,10 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render landing copy', async () => {
+  it('should render the hero headline', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('p')?.textContent).toContain('Spawn landing page');
+    expect(compiled.querySelector('h1')?.textContent).toContain('More Control');
   });
 });

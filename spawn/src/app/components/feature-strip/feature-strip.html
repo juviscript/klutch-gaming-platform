@@ -1,0 +1,11 @@
+<div class="content mt-20 grid grid-cols-1 gap-10 border-t border-white/10 pt-12 sm:grid-cols-2 lg:grid-cols-4">
+  @for (feature of features; track feature.title) {
+    <div class="flex items-start gap-4">
+      <app-icon [name]="feature.icon" iconClass="h-7 w-7 shrink-0 text-brand-purple" />
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-white">{{ feature.title }}</p>
+        <p class="mt-2 text-sm text-gray-400">{{ feature.description }}</p>
+      </div>
+    </div>
+  }
+</div>

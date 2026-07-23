@@ -1,0 +1,36 @@
+<section id="promise" class="snap-section flex min-h-screen items-center border-t border-white/10 py-24">
+  <div class="content grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.2fr_1fr]">
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-purple">Our Promise</p>
+      <h2 class="mt-2 text-3xl font-black uppercase leading-tight tracking-tight text-white">
+        Built by Gamers.<br />For Gamers.
+      </h2>
+      <p class="mt-6 text-sm text-gray-400">
+        Every product we build starts with a problem we've experienced as players. We design, test, and refine our
+        hardware until it's good enough for our own setup.
+      </p>
+      <p class="mt-6 text-sm text-gray-400">Thanks for supporting independent gaming.</p>
+      <p class="mt-8 font-serif italic text-gray-300">— Klutch Founder</p>
+    </div>
+
+    <div class="overflow-hidden rounded-lg">
+      <img
+        src="/images/smoothshot/smoothshot-product-image-right-w-bg.png"
+        alt="Klutch hardware on a gaming desk setup"
+        class="h-full w-full object-cover"
+      />
+    </div>
+
+    <div class="flex flex-col justify-center gap-8">
+      @for (stat of stats; track stat.value) {
+        <div class="flex items-center gap-4">
+          <app-icon [name]="stat.icon" iconClass="h-6 w-6 shrink-0 text-brand-purple" />
+          <div>
+            <p class="text-xs uppercase tracking-widest text-gray-500">{{ stat.label }}</p>
+            <p class="text-sm font-bold uppercase text-white">{{ stat.value }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

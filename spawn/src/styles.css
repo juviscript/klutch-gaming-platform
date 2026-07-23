@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+.content {
+  max-width: min(75%, 1440px);
+  margin-inline: auto;
+}
