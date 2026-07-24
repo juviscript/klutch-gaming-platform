@@ -1,3 +1,6 @@
+@import '@fontsource/audiowide';
+@import '@fontsource/michroma';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,3 +32,24 @@
   mask-image: radial-gradient(ellipse 75% 75% at center, black 50%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 75% 75% at center, black 50%, transparent 100%);
 }
+
+#compass {
+    h3 {
+        font-family: 'Michroma', sans-serif;
+        font-size: 2.4rem;
+        letter-spacing: 5px;
+        transform: scaleY(0.85);
+        transform-origin: center;
+    }
+}
+
+#smooth-shot {
+    h3 {
+        font-family: 'Audiowide', sans-serif;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 2.5rem;
+    }
+}
+
+

@@ -5,6 +5,7 @@ node_modules/
 dist/
 build/
 .astro/
+.claude/
 
 # Environment files
 .env

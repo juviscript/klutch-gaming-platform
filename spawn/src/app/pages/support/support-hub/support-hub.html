@@ -1,4 +1,4 @@
-<section class="content py-24">
+<section class="content bg-gradient-to-r from-brand-purple/20 to-transparent py-24">
   <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Support</p>
   <h1 class="mt-4 text-4xl font-black uppercase leading-tight tracking-tight text-white lg:text-6xl">
     How Can We Help?
@@ -15,8 +15,9 @@
   </h2>
 
   <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
-    @for (product of products; track product.name) {
+    @for (product of products; track product.id) {
       <a
+        [id]="product.id"
         [routerLink]="product.link"
         class="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-lg border border-white/10 bg-white/[0.02] p-10 transition-colors hover:border-white/30"
       >

@@ -3,6 +3,7 @@ import { Icon } from '../icon/icon';
 import { ScrollHint } from '../scroll-hint/scroll-hint';
 
 interface Product {
+  id: string;
   index: string;
   name: string;
   description: string;
@@ -21,13 +22,15 @@ const ETSY_SHOP_URL =
 export class Collection {
   readonly products: Product[] = [
     {
+      id: 'smooth-shot',
       index: '01',
       name: 'Smooth Shot',
       description: 'FPS Precision.\nWrist Support.\nZero Distraction.',
-      image: '/images/smoothshot/smoothshot-product-image-center.png',
+      image: '/images/smoothshot/smoothshot-product-image-right.png',
       url: `${ETSY_SHOP_URL}&section_id=54387079`,
     },
     {
+      id: 'compass',
       index: '02',
       name: 'Compass',
       description: 'Analog Movement.\nDigital Precision.\nTotal Control.',
