@@ -10,7 +10,13 @@ export type IconName =
   | 'arrow-right'
   | 'mouse'
   | 'layers'
-  | 'shield-check';
+  | 'shield-check'
+  | 'download'
+  | 'github'
+  | 'alert-triangle'
+  | 'monitor'
+  | 'usb'
+  | 'folder';
 
 @Component({
   selector: 'app-icon',

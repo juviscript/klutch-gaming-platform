@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Icon, IconName } from '../icon/icon';
+import { ScrollHint } from '../scroll-hint/scroll-hint';
 
 interface Stat {
   icon: IconName;
@@ -9,7 +10,7 @@ interface Stat {
 
 @Component({
   selector: 'app-promise',
-  imports: [Icon],
+  imports: [Icon, ScrollHint],
   templateUrl: './promise.html',
 })
 export class PromiseSection {

@@ -65,4 +65,44 @@
       <polyline points="9 12 11 14 15 10" />
     </svg>
   }
+  @case ('download') {
+    <svg [class]="iconClass()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v12" />
+      <polyline points="7 10 12 15 17 10" />
+      <path d="M5 21h14" />
+    </svg>
+  }
+  @case ('github') {
+    <svg [class]="iconClass()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="16 6 22 12 16 18" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  }
+  @case ('alert-triangle') {
+    <svg [class]="iconClass()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3 2 20h20L12 3z" />
+      <line x1="12" y1="9" x2="12" y2="14" />
+      <circle cx="12" cy="17" r="0.75" fill="currentColor" stroke="none" />
+    </svg>
+  }
+  @case ('monitor') {
+    <svg [class]="iconClass()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="4" width="20" height="13" rx="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
+  }
+  @case ('usb') {
+    <svg [class]="iconClass()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 8h10a1 1 0 0 1 1 1v3a5 5 0 0 1-5 5v0a5 5 0 0 1-5-5V9a1 1 0 0 1 1-1z" />
+      <line x1="9" y1="2" x2="9" y2="6" />
+      <line x1="15" y1="2" x2="15" y2="6" />
+      <line x1="12" y1="17" x2="12" y2="22" />
+    </svg>
+  }
+  @case ('folder') {
+    <svg [class]="iconClass()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+    </svg>
+  }
 }

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @media (min-width: 768px) {
-  html {
+  html.snap-scroll {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
   }
@@ -14,7 +14,18 @@
   }
 }
 
-.content {
-  max-width: min(75%, 1440px);
+.site-panel {
+  max-width: 1920px;
   margin-inline: auto;
+  background-color: #020202;
+}
+
+.content {
+  width: 100%;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+.fade-edges {
+  mask-image: radial-gradient(ellipse 75% 75% at center, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at center, black 50%, transparent 100%);
 }
