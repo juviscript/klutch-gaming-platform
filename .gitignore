@@ -1,4 +1,3 @@
-
 # Dependencies
 node_modules/
 
@@ -7,6 +6,8 @@ dist/
 build/
 .astro/
 .claude/
+.angular/
+graphify-out/
 
 # Environment files
 .env
@@ -26,12 +27,3 @@ Thumbs.db
 .vscode/
 *.suo
 *.user
-
-forge/node_modules
-shop/node_modules
-spawn/node_modules
-spawn/.angular
-spawn/.claude
-spawn/graphify-out
-spawn/.env.local
->>>>>>> Stashed changes
