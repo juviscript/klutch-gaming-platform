@@ -22,7 +22,7 @@ export class SupportHub {
       name: 'Compass',
       blurb: 'Setup, the Meridian software, firmware updates, and troubleshooting.',
       image: '/images/compass/compass-product-image-left.png',
-      link: '/support/compass',
+      link: '/support/compass/software',
     },
     {
       id: 'smooth-shot',

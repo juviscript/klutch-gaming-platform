@@ -47,3 +47,6 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# graphify (generated knowledge graph, regenerate with `graphify extract .`)
+graphify-out/

@@ -34,7 +34,7 @@
 }
 
 #compass {
-    h3 {
+    h1, h3 {
         font-family: 'Michroma', sans-serif;
         font-size: 2.4rem;
         letter-spacing: 5px;
@@ -44,7 +44,7 @@
 }
 
 #smooth-shot {
-    h3 {
+    h1, h3 {
         font-family: 'Audiowide', sans-serif;
         font-weight: 600;
         letter-spacing: 2px;

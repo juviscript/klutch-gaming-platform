@@ -1,7 +1,7 @@
 <section class="content pt-12">
-  <a routerLink="/support/compass" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-400 transition-colors hover:text-white">
+  <a routerLink="/support" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-400 transition-colors hover:text-white">
     <app-icon name="arrow-right" iconClass="h-4 w-4 rotate-180" />
-    Back to Compass Support
+    Back to Support
   </a>
 </section>
 
@@ -151,7 +151,14 @@
   <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Resources</p>
   <h2 class="mt-4 text-3xl font-black uppercase leading-tight tracking-tight text-white lg:text-4xl">More Help</h2>
 
-  <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+  <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <a
+      href="#"
+      class="flex items-center gap-3 rounded border border-white/20 px-6 py-4 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:border-white/40"
+    >
+      <app-icon name="person" iconClass="h-5 w-5 text-brand-purple" />
+      Contact Support
+    </a>
     @for (resource of resources; track resource.label) {
       <a
         [href]="resource.url"

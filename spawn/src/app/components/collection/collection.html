@@ -21,9 +21,7 @@
           <p class="mt-4 whitespace-pre-line text-base text-gray-400">{{ product.description }}</p>
 
           <a
-            [href]="product.url"
-            target="_blank"
-            rel="noopener noreferrer"
+            [routerLink]="product.link"
             class="mt-10 inline-flex items-center gap-2 rounded border border-white/20 px-6 py-3 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:border-white/40"
           >
             View Product

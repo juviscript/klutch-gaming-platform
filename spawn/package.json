@@ -6,7 +6,8 @@
     "dev": "ng serve --port 4321",
     "build": "ng build",
     "preview": "node dist/spawn/server/server.mjs",
-    "test": "ng test"
+    "test": "ng test",
+    "fetch:etsy": "node --env-file=.env.local scripts/fetch-etsy-listings.mjs"
   },
   "private": true,
   "packageManager": "npm@10.9.2",
