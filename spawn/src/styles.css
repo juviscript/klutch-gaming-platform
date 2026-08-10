@@ -36,8 +36,8 @@
 #compass {
     h1, h3 {
         font-family: 'Michroma', sans-serif;
-        font-size: 2.4rem;
-        letter-spacing: 5px;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
         transform: scaleY(0.85);
         transform-origin: center;
     }
@@ -47,8 +47,20 @@
     h1, h3 {
         font-family: 'Audiowide', sans-serif;
         font-weight: 600;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 640px) {
+    #compass h1, #compass h3 {
+        font-size: 2.4rem;
+        letter-spacing: 5px;
+    }
+
+    #smooth-shot h1, #smooth-shot h3 {
         font-size: 2.5rem;
+        letter-spacing: 2px;
     }
 }
 
