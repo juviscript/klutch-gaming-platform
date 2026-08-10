@@ -1,0 +1,45 @@
+<footer class="snap-section relative overflow-hidden border-t border-white/10 bg-white/[0.02] py-16">
+  <div class="pointer-events-none absolute left-1/2 top-0 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-purple/10 blur-[160px]"></div>
+
+  <div class="content relative">
+    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-b border-white/10 pb-10 text-sm font-semibold uppercase tracking-wide text-gray-400">
+      @for (social of socials; track social) {
+        <a href="#" class="transition-colors hover:text-white">{{ social }}</a>
+      }
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 py-14 sm:grid-cols-3">
+      <div>
+        <img src="/logo.svg" alt="Klutch Gaming" class="h-6 w-auto" />
+        <p class="mt-4 max-w-xs text-sm text-gray-500">
+          Performance gaming hardware designed to give you the competitive edge.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-white">Shop</p>
+        <ul class="mt-4 space-y-3 text-sm text-gray-400">
+          @for (link of shopLinks; track link) {
+            <li><a href="#" class="transition-colors hover:text-white">{{ link }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-white">Legal</p>
+        <ul class="mt-4 space-y-3 text-sm text-gray-400">
+          @for (link of legalLinks; track link) {
+            <li><a href="#" class="transition-colors hover:text-white">{{ link }}</a></li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs uppercase tracking-widest text-gray-500 sm:flex-row"
+    >
+      <p>© {{ year }} Klutch Gaming. All rights reserved.</p>
+      <p>Built Different</p>
+    </div>
+  </div>
+</footer>

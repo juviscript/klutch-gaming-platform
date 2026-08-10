@@ -1,0 +1,66 @@
+<section class="content bg-gradient-to-r from-brand-purple/20 to-transparent py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Support</p>
+  <h1 class="mt-4 text-4xl font-black uppercase leading-tight tracking-tight text-white lg:text-6xl">
+    How Can We Help?
+  </h1>
+  <p class="mt-6 max-w-2xl text-lg text-gray-400">
+    Pick your product to find setup guides, software, firmware, and troubleshooting.
+  </p>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Find Your Product</p>
+  <h2 class="mt-4 text-3xl font-black uppercase leading-tight tracking-tight text-white lg:text-4xl">
+    Select a Device
+  </h2>
+
+  <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+    @for (product of products; track product.id) {
+      <a
+        [id]="product.id"
+        [routerLink]="product.link"
+        class="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-lg border border-white/10 bg-white/[0.02] p-10 transition-colors hover:border-white/30"
+      >
+        <div>
+          <h3 class="text-3xl font-black uppercase leading-none tracking-tight text-white">{{ product.name }}</h3>
+          <p class="mt-4 max-w-xs text-sm text-gray-400">{{ product.blurb }}</p>
+        </div>
+
+        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white">
+          Get Support
+          <app-icon name="arrow-right" iconClass="h-4 w-4" />
+        </span>
+
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+          class="pointer-events-none absolute bottom-0 right-0 w-2/5 max-w-[220px] translate-x-6 translate-y-6 opacity-90 transition-transform duration-300 group-hover:translate-x-3"
+        />
+      </a>
+    }
+  </div>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Need Something Else?</p>
+  <h2 class="mt-4 text-3xl font-black uppercase leading-tight tracking-tight text-white lg:text-4xl">
+    General Help
+  </h2>
+
+  <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <a
+      href="#"
+      class="flex items-center gap-3 rounded border border-white/20 px-6 py-4 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:border-white/40"
+    >
+      <app-icon name="person" iconClass="h-5 w-5 text-brand-purple" />
+      Contact Support
+    </a>
+    <a
+      href="#"
+      class="flex items-center gap-3 rounded border border-white/20 px-6 py-4 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:border-white/40"
+    >
+      <app-icon name="box" iconClass="h-5 w-5 text-brand-purple" />
+      Orders, Shipping & Returns
+    </a>
+  </div>
+</section>

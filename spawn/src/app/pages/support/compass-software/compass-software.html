@@ -1,0 +1,178 @@
+<section class="content pt-12">
+  <a routerLink="/support" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-400 transition-colors hover:text-white">
+    <app-icon name="arrow-right" iconClass="h-4 w-4 rotate-180" />
+    Back to Support
+  </a>
+</section>
+
+<section class="content py-12">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Software</p>
+  <h1 class="mt-4 text-4xl font-black uppercase leading-tight tracking-tight text-white lg:text-6xl">Meridian</h1>
+  <p class="mt-6 max-w-2xl text-lg text-gray-400">
+    The companion app for your Klutch Gaming Compass. Remap keys, tune sensitivity, and manage profiles — all from
+    one dashboard.
+  </p>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-widest text-gray-400">
+    <span class="rounded border border-white/20 px-3 py-1.5">Windows 10/11</span>
+    <span class="rounded border border-white/20 px-3 py-1.5">App v0.1.0</span>
+    <span class="rounded border border-white/20 px-3 py-1.5">Firmware v0.2.0</span>
+    <span class="rounded border border-white/20 px-3 py-1.5">MIT License</span>
+  </div>
+
+  <div class="mt-10 flex flex-wrap items-center gap-4">
+    <a
+      [href]="releasesUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 rounded bg-brand-purple px-7 py-3.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-brand-purple-dark"
+    >
+      <app-icon name="download" iconClass="h-4 w-4" />
+      Download for Windows
+    </a>
+    <a
+      [href]="repoUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 rounded border border-white/20 px-7 py-3.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:border-white/40"
+    >
+      <app-icon name="github" iconClass="h-4 w-4" />
+      View on GitHub
+    </a>
+  </div>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Showcase</p>
+  <h2 class="mt-4 text-4xl font-black uppercase leading-tight tracking-tight text-white lg:text-5xl">See It in Action</h2>
+
+  <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
+    @for (shot of screenshots; track shot.title) {
+      <div class="overflow-hidden rounded-lg border border-white/10 bg-white/[0.02]">
+        <img [src]="shot.image" [alt]="shot.title" class="w-full" />
+        <div class="p-6">
+          <p class="text-sm font-bold uppercase tracking-widest text-white">{{ shot.title }}</p>
+          <p class="mt-2 text-sm text-gray-400">{{ shot.description }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Requirements</p>
+      <h2 class="mt-4 text-3xl font-black uppercase leading-tight tracking-tight text-white">Before You Install</h2>
+      <ul class="mt-6 space-y-4 text-base text-gray-400">
+        <li class="flex items-start gap-3">
+          <app-icon name="monitor" iconClass="mt-0.5 h-5 w-5 shrink-0 text-brand-purple" />
+          Windows 10 or 11, 64-bit
+        </li>
+        <li class="flex items-start gap-3">
+          <app-icon name="usb" iconClass="mt-0.5 h-5 w-5 shrink-0 text-brand-purple" />
+          A Klutch Gaming Compass connected via USB
+        </li>
+        <li class="flex items-start gap-3">
+          <app-icon name="box" iconClass="mt-0.5 h-5 w-5 shrink-0 text-brand-purple" />
+          No Java or other runtime needed — the app bundles its own
+        </li>
+      </ul>
+    </div>
+
+    <div class="rounded-lg border border-brand-purple/30 bg-brand-purple/[0.06] p-8">
+      <div class="flex items-center gap-3 text-brand-purple">
+        <app-icon name="alert-triangle" iconClass="h-6 w-6" />
+        <p class="text-sm font-bold uppercase tracking-widest">Windows SmartScreen Notice</p>
+      </div>
+      <p class="mt-4 text-base text-gray-300">
+        Meridian isn't code-signed yet, so Windows will likely show "Windows protected your PC" on first launch.
+        This is expected for a young open-source project — click
+        <span class="font-semibold text-white">More info</span>, then
+        <span class="font-semibold text-white">Run anyway</span>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Getting Started</p>
+  <h2 class="mt-4 text-4xl font-black uppercase leading-tight tracking-tight text-white lg:text-5xl">
+    Up and Running in Minutes
+  </h2>
+
+  <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    @for (step of gettingStarted; track step.title) {
+      <div>
+        <p class="text-sm font-bold text-brand-purple">{{ step.index }}</p>
+        <p class="mt-3 text-sm font-bold uppercase tracking-widest text-white">{{ step.title }}</p>
+        <p class="mt-2 text-sm text-gray-400">{{ step.description }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Troubleshooting</p>
+  <h2 class="mt-4 text-4xl font-black uppercase leading-tight tracking-tight text-white lg:text-5xl">Common Issues</h2>
+
+  <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
+    @for (item of troubleshooting; track item.question) {
+      <div class="rounded-lg border border-white/10 bg-white/[0.02] p-8">
+        <p class="text-base font-bold text-white">{{ item.question }}</p>
+        <p class="mt-3 text-sm text-gray-400">{{ item.answer }}</p>
+      </div>
+    }
+  </div>
+
+  <p class="mt-10 text-sm text-gray-500">
+    Still having trouble? Check the debug log at
+    <code class="rounded bg-white/5 px-2 py-1 text-gray-300">%APPDATA%\Meridian\meridian.log</code>
+  </p>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Firmware</p>
+  <h2 class="mt-4 text-3xl font-black uppercase leading-tight tracking-tight text-white lg:text-4xl">
+    Updating Your Compass
+  </h2>
+  <p class="mt-6 max-w-2xl text-base text-gray-400">
+    Meridian checks for new firmware on connect and links you to the changelog when one's available, but doesn't
+    flash it automatically yet. To update manually:
+  </p>
+  <ol class="mt-6 max-w-2xl space-y-3 text-base text-gray-400">
+    <li>1. Put the Compass into UF2 bootloader mode — it'll appear as a USB mass-storage drive.</li>
+    <li>2. Download the latest <code class="rounded bg-white/5 px-2 py-1 text-gray-300">.uf2</code> file from GitHub Releases.</li>
+    <li>3. Drag the file onto that drive. The Compass will reboot automatically once it's done.</li>
+  </ol>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Resources</p>
+  <h2 class="mt-4 text-3xl font-black uppercase leading-tight tracking-tight text-white lg:text-4xl">More Help</h2>
+
+  <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <a
+      href="#"
+      class="flex items-center gap-3 rounded border border-white/20 px-6 py-4 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:border-white/40"
+    >
+      <app-icon name="person" iconClass="h-5 w-5 text-brand-purple" />
+      Contact Support
+    </a>
+    @for (resource of resources; track resource.label) {
+      <a
+        [href]="resource.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 rounded border border-white/20 px-6 py-4 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:border-white/40"
+      >
+        <app-icon [name]="resource.icon" iconClass="h-5 w-5 text-brand-purple" />
+        {{ resource.label }}
+      </a>
+    }
+  </div>
+
+  <p class="mt-10 text-sm text-gray-500">
+    Meridian is open source under the MIT license. Contributions and issue reports are welcome.
+  </p>
+</section>

@@ -1,0 +1,40 @@
+<section id="promise" class="snap-section relative flex min-h-screen items-center overflow-hidden border-t border-white/10 py-24">
+  <div class="pointer-events-none absolute -left-40 bottom-0 h-[45rem] w-[50rem] rounded-full bg-brand-purple/10 blur-[150px]"></div>
+
+  <div class="content relative grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.2fr_1fr]">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Our Promise</p>
+      <h2 class="mt-4 text-4xl font-black uppercase leading-tight tracking-tight text-white lg:text-5xl">
+        Built by Gamers.<br />For Gamers.
+      </h2>
+      <p class="mt-6 text-base text-gray-400">
+        Every product we build starts with a problem we've experienced as players. We design, test, and refine our
+        hardware until it's good enough for our own setup.
+      </p>
+      <p class="mt-6 text-base text-gray-400">Thanks for supporting independent gaming.</p>
+      <p class="mt-10 text-base font-serif italic text-gray-300">— Klutch Founder</p>
+    </div>
+
+    <div class="fade-edges relative overflow-hidden">
+      <img
+        src="/images/stock/pc-setup-purple.png"
+        alt="Klutch hardware on a gaming desk setup"
+        class="h-full w-full object-cover object-[75%_40%] brightness-75 saturate-75"
+      />
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+
+    <div class="flex flex-col justify-center gap-10">
+      @for (stat of stats; track stat.value) {
+        <div class="flex items-center gap-4">
+          <app-icon [name]="stat.icon" iconClass="h-8 w-8 shrink-0 text-brand-purple" />
+          <div>
+            <p class="text-xs uppercase tracking-widest text-gray-500">{{ stat.label }}</p>
+            <p class="text-base font-bold uppercase text-white">{{ stat.value }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+  <app-scroll-hint />
+</section>

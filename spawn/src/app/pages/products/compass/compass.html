@@ -1,0 +1,69 @@
+<section class="content pt-12">
+  <a routerLink="/" fragment="collection" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-400 transition-colors hover:text-white">
+    <app-icon name="arrow-right" iconClass="h-4 w-4 rotate-180" />
+    Back to Collection
+  </a>
+</section>
+
+<section class="content py-12">
+  <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+    <div class="relative flex items-center justify-center">
+      <img
+        src="/images/compass/compass-product-image-left.png"
+        alt="Klutch Compass gaming controller"
+        class="w-full max-w-md drop-shadow-2xl"
+      />
+    </div>
+
+    <div id="compass">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">Compass</p>
+      <h1 class="mt-4 text-4xl font-black uppercase leading-tight tracking-tight text-white lg:text-5xl">
+        Compass
+      </h1>
+
+      <div class="mt-4 inline-flex items-center gap-2 rounded border border-brand-purple/30 bg-brand-purple/[0.06] px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-purple">
+        Launching Soon
+      </div>
+
+      <p class="mt-6 max-w-md text-base text-gray-400">
+        Analog movement. Digital precision. Total control. Compass maps four directions plus a click into
+        remappable keyboard input, tuned and configured through our Meridian software.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a
+          [href]="shopUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded bg-brand-purple px-7 py-3.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-brand-purple-dark"
+        >
+          Visit Shop
+          <app-icon name="arrow-right" iconClass="h-4 w-4" />
+        </a>
+        <a
+          routerLink="/support/compass/software"
+          class="inline-flex items-center gap-2 rounded border border-white/20 px-7 py-3.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:border-white/40"
+        >
+          <app-icon name="download" iconClass="h-4 w-4" />
+          Meridian Software
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content border-t border-white/10 py-24">
+  <p class="text-sm font-semibold uppercase tracking-widest text-brand-purple">FAQ</p>
+  <h2 class="mt-4 text-3xl font-black uppercase leading-tight tracking-tight text-white lg:text-4xl">
+    Common Questions
+  </h2>
+
+  <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
+    @for (faq of faqs; track faq.question) {
+      <div class="rounded-lg border border-white/10 bg-white/[0.02] p-8">
+        <p class="text-base font-bold text-white">{{ faq.question }}</p>
+        <p class="mt-3 text-sm text-gray-400">{{ faq.answer }}</p>
+      </div>
+    }
+  </div>
+</section>
